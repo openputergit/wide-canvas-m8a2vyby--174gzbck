@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blue Brick Wall</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        .brick-wall {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+                            linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+            background-size: 50px 25px;
+            background-color: #4a90a8;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .brick-wall::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%),
+                        linear-gradient(-45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%);
+            background-size: 3px 3px;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Main Container -->
+    <div class="brick-wall w-full min-h-screen flex items-center justify-center p-4">
+        <!-- Content Card -->
+        <div class="bg-white bg-opacity-90 rounded-lg shadow-xl p-8 max-w-md w-full">
+            <h1 class="text-3xl font-bold text-gray-800 mb-6 text-center">Brick Wall Demo</h1>
+            <p class="text-gray-600 mb-4 text-center">
+                This is a demonstration of a stylized brick wall pattern with a modern, clean interface.
+            </p>
+            <div class="flex justify-center gap-4">
+                <button class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-300">
+                    <i class="bi bi-brick me-2"></i>Explore
+                </button>
+                <button class="bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-300">
+                    <i class="bi bi-info-circle me-2"></i>Learn More
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add any interactive features here
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', () => {
+                button.classList.add('scale-95');
+                setTimeout(() => button.classList.remove('scale-95'), 100);
+            });
+        });
+    </script>
+<script>document.body.addEventListener('wheel', e => { if (!e.ctrlKey) return; e.preventDefault(); return }, { passive: false })</script>
+	</body>
+</html>
